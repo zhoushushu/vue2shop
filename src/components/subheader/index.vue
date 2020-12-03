@@ -1,7 +1,8 @@
 <template>
   <header class="subheader">
-    <span class="lefticon" @click="goback">
-      <van-icon v-if="gobackShow" name="arrow-left" />
+    <span class="lefticon" @click="goHome"
+      ><van-icon />
+      <van-icon v-if="goHomeShow" name="wap-home-o" />
     </span>
     <div class="headertitle">{{ title }}</div>
     <span class="righticon"><van-icon v-if="loginShow" name="user-o" /></span>
@@ -9,13 +10,10 @@
 </template>
 
 <script>
-import { reactive, toRefs, nextTick } from "vue";
-import { useRouter } from "vue-router";
-
 export default {
   props: ["title"],
   props: {
-    gobackShow: {
+    goHomeShow: {
       type: Boolean,
       default: true,
     },
@@ -28,17 +26,10 @@ export default {
       default: true,
     },
   },
-  setup() {
-    //
-    const router = useRouter();
-    //
-    function goback() {
-      router.go(-1);
-    }
-    //
-    return {
-      goback,
-    };
+  methods: {
+    goHome() {
+      this.$router.push("/");
+    },
   },
 };
 </script>

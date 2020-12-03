@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <m-header></m-header>
     <!-- 底部导航 -->
-    <bottom-nav :active="tabActive"></bottom-nav>
+    <bottom-nav :tabActive="tabActive"></bottom-nav>
     <!-- 轮播图 -->
     <div class="swiperwrap">
       <m-swiper :swiperData="swiperImages"></m-swiper>
@@ -27,13 +27,13 @@
 </template>
 
 <script>
-import mHeader from "../components/header/index";
-import bottomNav from "../components/bottomnav/index";
-import mSwiper from "../components/swiper/index";
-import mGoods from "../components/goods/index";
-import mFooter from "../components/footer/index";
+import mHeader from "./components/header/index";
+import bottomNav from "../../components/bottomnav/index";
+import mSwiper from "./components/swiper/index";
+import mGoods from "./components/goods/index";
+import mFooter from "../../components/footer/index";
 //
-import { get } from "../service/http";
+import { get } from "@/service/http";
 //
 export default {
   components: {
@@ -49,12 +49,12 @@ export default {
       swiperImages: [],
       navList: [
         {
-          title: "新蜂超市",
+          title: "商城超市",
           url: "//s.yezgea02.com/1604041127880/%E8%B6%85%E5%B8%82%402x.png",
           id: 100001,
         },
         {
-          title: "新蜂服饰",
+          title: "商城服饰",
           url: "//s.yezgea02.com/1604041127880/%E6%9C%8D%E9%A5%B0%402x.png",
           id: 100003,
         },
@@ -65,17 +65,17 @@ export default {
           id: 100002,
         },
         {
-          title: "新蜂生鲜",
+          title: "商城生鲜",
           url: "//s.yezgea02.com/1604041127880/%E7%94%9F%E9%B2%9C%402x.png",
           id: 100004,
         },
         {
-          title: "新蜂到家",
+          title: "商城到家",
           url: "//s.yezgea02.com/1604041127880/%E5%88%B0%E5%AE%B6%402x.png",
           id: 100005,
         },
         {
-          title: "充值缴费",
+          title: "缴费",
           url: "//s.yezgea02.com/1604041127880/%E5%85%85%E5%80%BC%402x.png",
           id: 100006,
         },
@@ -121,7 +121,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import url("../common/style/mixin.less");
+@import url("../../common/style/mixin.less");
 
 .indexwrap {
   width: 100vw;

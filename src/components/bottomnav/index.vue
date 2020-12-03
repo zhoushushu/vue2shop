@@ -9,7 +9,12 @@
 
 <script>
 export default {
-  props: ["active"],
+  props: ["tabActive"],
+  data() {
+    return {
+      active: this.tabActive,
+    };
+  },
 };
 </script>
 

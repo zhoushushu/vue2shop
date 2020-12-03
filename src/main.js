@@ -5,6 +5,8 @@ import store from './store'
 import 'lib-flexible/flexible'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+// 全局引入样式
+import './common/style/base.less'
 
 Vue.use(Vant)
 Vue.config.productionTip = false

@@ -1,9 +1,17 @@
 <template>
-  <div class="loginwrap"></div>
+  <div class="loginwrap">
+    <m-subheader title="登录" :loginShow="false"></m-subheader>
+  </div>
 </template>
 
 <script>
-export default {};
+import mSubheader from "../../components/subheader";
+
+export default {
+  components: {
+    mSubheader,
+  },
+};
 </script>
 
 <style lang="less" scoped>
