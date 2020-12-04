@@ -1,6 +1,7 @@
 <template>
-  <div class="loginwrap">
-    <m-subheader title="登录" :loginShow="false"></m-subheader>
+  <div class="infowrap">
+    <!-- 头部 -->
+    <m-subheader title="帐号管理" :loginShow="true"></m-subheader>
   </div>
 </template>
 
@@ -11,8 +12,13 @@ export default {
   components: {
     mSubheader,
   },
+  data() {
+    return {};
+  },
 };
 </script>
 
 <style lang="less" scoped>
+.infowrap {
+}
 </style>

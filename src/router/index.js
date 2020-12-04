@@ -38,6 +38,31 @@ const routes = [
     path: '/user',
     name: 'user',
     component: () => import('../views/User/index')
+  },
+  {
+    path: '/item/:id',
+    name: 'item',
+    component: () => import('../views/Item/index')
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import('../views/Order/index')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('../views/About/index')
+  },
+  {
+    path: '/address',
+    name: 'address',
+    component: () => import('../views/Address/index')
+  },
+  {
+    path: '/info',
+    name: 'info',
+    component: () => import('../views/Info/index')
   }
 ]
 

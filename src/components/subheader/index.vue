@@ -5,7 +5,9 @@
       <van-icon v-if="goHomeShow" name="wap-home-o" />
     </span>
     <div class="headertitle">{{ title }}</div>
-    <span class="righticon"><van-icon v-if="loginShow" name="user-o" /></span>
+    <span class="righticon"
+      ><van-icon @click="goUser" v-if="loginShow" name="user-o"
+    /></span>
   </header>
 </template>
 
@@ -29,6 +31,9 @@ export default {
   methods: {
     goHome() {
       this.$router.push("/");
+    },
+    goUser() {
+      this.$router.push("/user");
     },
   },
 };

@@ -31,9 +31,10 @@ export default {
       }
     },
     goToDetail(obj) {
-      this.$router.push({
-        path: `/product/${obj.goodsId}`,
-      });
+      // this.$router.push({
+      //   path: `/product/${obj.goodsId}`,
+      // });
+      this.$router.push(`/item/${obj.goodsId}`);
     },
   },
 };

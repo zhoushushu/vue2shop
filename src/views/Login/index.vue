@@ -56,8 +56,8 @@ export default {
   },
   data() {
     return {
-      username: "",
-      password: "",
+      username: "13812342222",
+      password: "123456",
       identifyCode: "",
       validCode: "",
     };

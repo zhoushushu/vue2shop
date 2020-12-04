@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <m-subheader title="商品分类" :loginShow="true"></m-subheader>
     <!-- 底部导航 -->
-    <bottom-nav :tabActive="tabActive"></bottom-nav>
+    <bottom-nav></bottom-nav>
     <!-- 左侧分类 -->
     <div class="leftwrap">
       <van-sidebar v-model="activeKey" @change="onChange">
@@ -45,7 +45,6 @@ export default {
   },
   data() {
     return {
-      tabActive: 1,
       activeKey: 0,
       categoryData: [],
       categoryObj: {},

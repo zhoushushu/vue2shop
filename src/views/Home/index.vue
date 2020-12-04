@@ -3,7 +3,7 @@
     <!-- 头部 -->
     <m-header></m-header>
     <!-- 底部导航 -->
-    <bottom-nav :tabActive="tabActive"></bottom-nav>
+    <bottom-nav></bottom-nav>
     <!-- 轮播图 -->
     <div class="swiperwrap">
       <m-swiper :swiperData="swiperImages"></m-swiper>
@@ -45,7 +45,6 @@ export default {
   },
   data() {
     return {
-      tabActive: 0,
       swiperImages: [],
       navList: [
         {
