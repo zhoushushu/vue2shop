@@ -60,6 +60,11 @@ const routes = [
     component: () => import('../views/Address/index')
   },
   {
+    path: '/address/:type',
+    name: 'addressaction',
+    component: () => import('../views/Address/action')
+  },
+  {
     path: '/info',
     name: 'info',
     component: () => import('../views/Info/index')

@@ -77,7 +77,7 @@ export default {
           this.$toast("登出成功");
           setTimeout(() => {
             this.$router.replace("/");
-          }, 1000);
+          }, 500);
         })
         .catch(() => {
           // on cancel

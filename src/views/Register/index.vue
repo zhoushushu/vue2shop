@@ -22,7 +22,6 @@
         name="验证码"
         label="验证码"
         placeholder="验证码"
-        :rules="[{ required: true, message: '请填写验证码' }]"
       >
         <template #extra>
           <m-identify :upValidCodeData.sync="validCode"></m-identify>
@@ -42,9 +41,7 @@
 
 <script>
 import mSubheader from "../../components/subheader";
-import { Toast } from "vant";
 import { post } from "@/service/http";
-import md5 from "js-md5";
 import mIdentify from "./components/identify/index";
 
 export default {
@@ -63,7 +60,7 @@ export default {
   methods: {
     async onSubmit() {
       // if (this.identifyCode !== this.validCode) {
-      //   Toast("验证码不正确");
+      //   this.$toast("验证码不正确");
       //   return;
       // }
       let obj = {};
@@ -71,18 +68,15 @@ export default {
       obj.password = this.password;
       let temp = await post("/user/register", obj);
       if (temp.resultCode !== 200) {
-        Toast(temp.message);
+        this.$toast(temp.message);
         return;
       }
-      Toast("注册成功，请登录");
-      // token
-      let token = temp.data;
-      store.set("token", token);
+      this.$toast("注册成功，请登录");
       //
-      Toast("注册成功");
+      this.$toast("注册成功");
       setTimeout(() => {
         this.$router.push("/login");
-      }, 1000);
+      }, 500);
     },
   },
 };
