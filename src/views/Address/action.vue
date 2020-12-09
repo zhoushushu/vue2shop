@@ -56,17 +56,20 @@ export default {
       this.editId = editId;
       //
       let temp = await get(`/address/${editId}`);
-      console.log(temp.data);
+      // console.log(this.areaList.county_list);
+      let areaCode = "";
+      for (const value of Object.entries(this.areaList.county_list)) {
+        if (value[1] === temp.data.regionName) {
+          areaCode = value[0];
+        }
+      }
       let tempObj = {};
       tempObj.id = temp.data.addressId;
-      tempObj.city = temp.data.cityName;
       tempObj.isDefault = temp.data.defaultFlag ? true : false;
       tempObj.addressDetail = temp.data.detailAddress;
-      tempObj.province = temp.data.provinceName;
-      tempObj.county = temp.data.regionName;
       tempObj.name = temp.data.userName;
       tempObj.tel = temp.data.userPhone;
-      tempObj.areaCode = "130821";
+      tempObj.areaCode = areaCode;
       this.addressInfo = tempObj;
     }
   },

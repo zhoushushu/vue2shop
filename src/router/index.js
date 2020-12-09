@@ -68,6 +68,11 @@ const routes = [
     path: '/info',
     name: 'info',
     component: () => import('../views/Info/index')
+  },
+  {
+    path: '/book',
+    name: 'book',
+    component: () => import('../views/Book/index')
   }
 ]
 

@@ -47,14 +47,18 @@
         @click="gotoCart"
         icon="cart-o"
         text="购物车"
-        badge="0"
+        :badge="cartData.length"
       />
       <van-goods-action-button
         @click="addCart"
         type="warning"
         text="加入购物车"
       />
-      <van-goods-action-button @click="gotoOrder" type="danger" text="立即购买" />
+      <van-goods-action-button
+        @click="buy"
+        type="danger"
+        text="立即购买"
+      />
     </van-goods-action>
   </div>
 </template>
@@ -106,11 +110,17 @@ export default {
       this.$router.push("/cart");
     },
     addCart() {
-      this.$toast("加入购物车");
+      this.$store.commit("addCart", this.detail);
     },
-    gotoOrder() {
-      this.$router.push("/order");
-    }
+    buy() {
+      this.$store.commit("addOneCart", this.detail);
+      this.$router.push("/cart");
+    },
+  },
+  computed: {
+    cartData() {
+      return this.$store.state.cartData;
+    },
   },
 };
 </script>

@@ -13,16 +13,19 @@
         <van-tab title="交易完成" name="4"></van-tab>
       </van-tabs>
     </div>
-    <div class="orderlist">
+    <div class="orderlist" v-for="item in orderData" :key="item.orderId">
       <van-card
-        num="2"
-        price="2.00"
-        desc="描述信息"
-        title="商品标题"
-        thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
+        :price="item.totalPrice | filterPrice"
+        :title="item.newBeeMallOrderItemVOS[0].goodsName"
+        :thumb="item.newBeeMallOrderItemVOS[0].goodsCoverImg | filterImg"
       >
         <template #tags>
-          <van-tag plain type="danger">订单时间：2020-12-5 12:45:56</van-tag>
+          <van-tag style="margin-top: 5px" plain type="danger"
+            >订单时间：{{ item.createTime }}</van-tag
+          >
+          <van-tag style="margin-top: 5px" plain type="danger"
+            >订单状态：{{ item.orderStatusString }}</van-tag
+          >
         </template>
       </van-card>
     </div>
@@ -32,6 +35,7 @@
 <script>
 import mSubheader from "../../components/subheader";
 import store from "../../common/js/store";
+import { get } from "../../service/http";
 
 export default {
   components: {
@@ -47,13 +51,26 @@ export default {
       this.$toast("尚未登录");
       this.$router.replace("/login");
     }
-    // let temp = await get("/address");
-    // if (temp.resultCode !== 200) {
-    //   this.$toast(temp.message);
-    //   return;
-    // }
+    let temp = await get("/order?pageNumber=1&status=");
+    if (temp.resultCode !== 200) {
+      this.$toast(temp.message);
+      return;
+    }
     //
-    this.orderData = [];
+    this.orderData = temp.data.list;
+  },
+  filters: {
+    filterImg(url) {
+      if (url && url.startsWith("http")) {
+        return url;
+      } else {
+        url = `http://47.99.134.126:28019${url}`;
+        return url;
+      }
+    },
+    filterPrice(num) {
+      return num.toFixed(2);
+    },
   },
 };
 </script>
